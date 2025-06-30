@@ -2,7 +2,7 @@ const grapPlek = document.getElementById('grapP');
 const grapKnop = document.getElementById('nieuwe-grap');
 const grapdiv = document.querySelector('.grap');
 const apiUrl = 'https://v2.jokeapi.dev/joke/Any?type=single';
-
+const grapCat = document.getElementById('grapCat');
 
 
 grapKnop.addEventListener('click', async e => {
@@ -26,6 +26,7 @@ async function fetchGrap() {
     }
 
     const data = await response.json();
+    grapCat.textContent = `Categorie: ${data.category}`;
     displayGrap(data.joke);
 }
 
